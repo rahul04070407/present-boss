@@ -1,0 +1,108 @@
+.footer {
+    background-color: #000;
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    .container {
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+
+            .col-md-3 {
+                flex: 1 1 25%;
+                padding: 0 1rem;
+                margin-bottom: 1rem;
+
+                h6 {
+                    font-weight: bold;
+                }
+
+                p,
+                ul {
+                    font-size: 0.875rem;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding-left: 0;
+
+                    li {
+                        margin-bottom: 0.5rem;
+
+                        a {
+                            color: white;
+                            text-decoration: none;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                .d-flex {
+                    gap: 0.5rem;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    a {
+                        font-size: 1.25rem;
+                        color: white;
+                        margin-bottom: 0.5rem;
+
+                        &:hover {
+                            color: #17a2b8;
+                        }
+                    }
+                }
+            }
+        }
+
+        hr {
+            border-color: #dee2e6;
+        }
+
+        .small {
+            font-size: 0.875rem;
+        }
+
+        .justify-content-between {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            .text-white {
+                text-decoration: none;
+            }
+
+            .text-white:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+.foot-icon {
+    background: white;
+    color: #0A66C2;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #0A66C2;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.foot-icon:hover {
+    background: #0A66C2;
+    color: white;
+    border-color: #0A66C2;
+}
