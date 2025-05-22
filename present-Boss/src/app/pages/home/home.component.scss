@@ -576,7 +576,7 @@ img {
 }
 
 .cta-section {
-    background: linear-gradient(to right, rgb(255 255 255 / 16%) 0%, rgba(12, 107, 129, 1) 100%), url(/images/gard.png) no-repeat center center;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.16) 0%, rgb(12 107 129 / 80%) 80%), url(/images/gard.png) no-repeat center center;
     background-size: cover;
 
     color: #fff;
@@ -584,11 +584,11 @@ img {
     align-items: center;
     justify-content: flex-end;
     padding: 4rem 2rem;
-    min-height: 350px;
+    min-height: 550px;
     position: relative;
 
     .cta-content {
-        max-width: 500px;
+        max-width: 100%;
         margin-left: 50%;
         padding-right: 2rem;
         width: 100%;
@@ -630,5 +630,19 @@ img {
                 }
             }
         }
+    }
+}
+
+// Responsive override: on screens ≤ 768px, reset margin-left to 0
+@media (max-width: 768px) {
+    .cta-section {
+        background: linear-gradient(to right, rgb(116 169 181 / 69%) 0%, rgb(12, 107, 129) 100%), url(/images/gard.png) no-repeat center center;
+        background-size: cover;
+        justify-content: flex-start;
+    }
+
+    .cta-section .cta-content {
+        margin-left: 0;
+        padding-right: 0;
     }
 }
