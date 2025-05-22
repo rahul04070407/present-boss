@@ -313,7 +313,7 @@
 // Who's It For Section
 .who-wrapper {
     background-color: #0c6b81;
-    padding: 3rem 2rem;
+    padding: 6rem 2rem;
     text-align: center;
 
     h2 {
@@ -423,4 +423,150 @@
             max-width: 460px;
         }
     }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  /* Adjust hero section for tablets */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .image-section {
+    margin-top: 2rem;
+  }
+
+  /* Feature sections stacking */
+  .feature-row {
+    flex-direction: column;
+    gap: 2rem !important;
+  }
+
+  .reverse {
+    flex-direction: column !important;
+  }
+
+  /* Who's It For tags adjustment */
+  .who-tags .first-row,
+  .who-tags .second-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile adjustments */
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Hero section mobile layout */
+  .hero-content {
+    padding: 1rem;
+  }
+
+  /* Feature sections mobile layout */
+  .feature-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .feature-image img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  /* Who's It For tags mobile */
+  .who-tags span {
+    white-space: normal;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* FAQ grid mobile layout */
+  .faq-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .faq-item {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small mobile adjustments */
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .feature-text h3 span {
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+  /* Who's It For full-width tags */
+  .who-tags .first-row,
+  .who-tags .second-row {
+    flex-direction: column;
+  }
+
+  .who-tags span {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  /* FAQ item text sizing */
+  .faq-item {
+    font-size: 0.9rem !important;
+    padding: 1rem !important;
+  }
+
+  .faq-item.large {
+    font-size: 1rem !important;
+  }
+}
+
+/* Base Responsive Rules */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.feature-row,
+.feature-content,
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Add these to existing CSS */
+@media (max-width: 1024px) {
+  .image-block {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .badge-image {
+    display: none; /* Hide decorative badges on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .text-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .feature-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .highlight {
+    font-size: 1.1rem !important;
+  }
 }
