@@ -1,0 +1,163 @@
+.present-boss-wrapper {
+    font-family: 'Michroma', sans-serif; // Use Michroma for entire wrapper
+
+    .hero-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 2rem;
+        background-color: #fff;
+
+        .hero-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            gap: 0.5rem; // smaller gap for tighter spacing
+            position: relative;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            position: relative; // for absolute positioning of image
+
+            .hero-image {
+                width: 800px;
+                height: auto;
+                object-fit: contain;
+                position: relative;
+                left: -100px; // shift left to overlap text
+                z-index: 2; // bring image above text if overlapping
+            }
+        }
+
+        .text-section {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            z-index: 1; // keep text below image if overlap happens
+        }
+
+    }
+
+    .feature-section {
+        background-color: #1d6e85;
+        color: #fff;
+        padding: 4rem 2rem;
+
+        .feature-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            // gap: 2rem;
+        }
+
+        .feature-text,
+        .feature-image {
+            flex: 1 1 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .feature-text {
+            h3 {
+                font-size: 2rem;
+                font-weight: 500;
+                line-height: 1.4;
+
+                span {
+                    font-weight: bold;
+                }
+            }
+
+            p {
+                margin-top: 1rem;
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+
+            .highlight {
+                color: #ffcc00;
+                font-weight: bold;
+                margin-top: 1.5rem;
+            }
+        }
+
+        .feature-image {
+            text-align: center;
+
+            img {
+                width: 100%;
+                max-width: 550px;
+                max-height: 400px;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+    }
+
+
+    // Responsive adjustments
+    @media (max-width: 992px) {
+        .hero-content {
+            flex-direction: column-reverse;
+            text-align: center;
+
+            .text-section h1 {
+                font-size: 2.4rem;
+                text-align: center;
+            }
+
+            .image-section .hero-image {
+                width: 100%;
+            }
+        }
+
+        .feature-content {
+            flex-direction: column;
+        }
+
+        .feature-text {
+            text-align: center;
+        }
+
+        .feature-image img {
+            max-width: 90%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-section {
+            padding: 2rem 1rem;
+        }
+
+        .text-section h1 {
+            font-size: 2rem;
+        }
+
+        .feature-text h3 {
+            font-size: 1.4rem;
+        }
+
+        .feature-text p {
+            font-size: 1rem;
+        }
+
+        .feature-image img {
+            max-width: 90%;
+        }
+    }
+}
