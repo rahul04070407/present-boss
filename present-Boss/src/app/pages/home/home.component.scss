@@ -17,7 +17,8 @@
             max-width: 1200px;
             width: 100%;
             // gap: 0.5rem;
-            left: -132px;
+            // left: -100px;
+            left: -50PX;
             position: relative;
         }
 
@@ -90,7 +91,7 @@
         }
 
         .feature-image {
-            flex: 1 1 350px;
+            // flex: 1 1 350px;
 
             img {
                 width: 100%;
@@ -105,7 +106,8 @@
     @media (min-width: 1700px) {
         .hero-section {
             .hero-content {
-                left: -160px;
+                // left: -160px;
+                left: -107px;
             }
         }
     }
