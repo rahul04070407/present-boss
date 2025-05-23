@@ -173,6 +173,8 @@
             }
 
             .feature-text {
+                flex: unset;
+
                 h3 {
                     font-size: 1.5rem;
 
@@ -319,12 +321,21 @@
 
             .text-block,
             .image-block {
-                text-align: center;
+                text-align: center !important;
+                flex: unset;
+            }
+
+
+            .main-image {
+
+                max-width: 350px;
+
             }
 
             .badge-image {
                 top: 10px;
-                left: 50% !important;
+                // left: 50% !important;
+                left: 20px !important;
                 transform: translateX(-50%);
                 width: 140px;
             }
@@ -460,10 +471,31 @@
         margin-top: 2rem;
     }
 
-    /* Feature sections stacking */
+
+
     .feature-row {
+
         flex-direction: column;
-        gap: 2rem !important;
+        text-align: center;
+
+        .text-block {
+            text-align: center !important;
+            flex: unset !important;
+        }
+
+        .main-image {
+
+            max-width: 300px !important;
+
+        }
+
+        .badge-image {
+            top: 20px;
+
+            left: 20px !important;
+            transform: translateX(-50%);
+            width: 150px !important;
+        }
     }
 
     .reverse {
@@ -555,6 +587,24 @@
     .faq-item.large {
         font-size: 1rem !important;
     }
+
+    .feature-row {
+
+
+        .main-image {
+
+            max-width: 250px !important;
+
+        }
+
+        .badge-image {
+            top: 10px;
+            // left: 50% !important;
+            left: 20px !important;
+            transform: translateX(-50%);
+            width: 100px !important;
+        }
+    }
 }
 
 /* Base Responsive Rules */
@@ -578,7 +628,7 @@ img {
     }
 
     .badge-image {
-        display: none;
+        // display: none;
         /* Hide decorative badges on mobile */
     }
 }
