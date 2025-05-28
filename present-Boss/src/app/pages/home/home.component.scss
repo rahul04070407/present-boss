@@ -65,7 +65,7 @@
         }
 
         .feature-text {
-            flex: 1 1 350px;
+            // flex: 1 1 350px;
 
             h3 {
                 font-size: 2rem;
@@ -258,6 +258,7 @@
         justify-content: space-between;
         gap: 3rem;
         flex-wrap: wrap;
+        padding-left: 140px !important;
 
         &.reverse {
             flex-direction: row-reverse;
@@ -314,10 +315,17 @@
         }
     }
 
+    @media (max-width: 1150px) {
+        .feature-row {
+            padding-left: 65px !important;
+        }
+    }
+
     @media (max-width: 768px) {
         .feature-row {
             flex-direction: column !important;
             gap: 0px !important;
+            padding-left: 0px !important;
 
             .text-block,
             .image-block {
@@ -649,7 +657,7 @@ img {
 
 .cta-section {
     // background: linear-gradient(to right, rgba(255, 255, 255, 0.16) 0%, rgb(12 107 129 / 80%) 80%), url(/images/gard.png) no-repeat center center;
-     background: linear-gradient(to right, rgba(255, 255, 255, 0.16) 0%, rgb(12 107 129 / 80%) 80%), url(../../../../public/images/gard.png) no-repeat center center;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.16) 0%, rgb(12 107 129 / 80%) 80%), url(../../../../public/images/gard.png) no-repeat center center;
     background-size: cover;
 
     color: #fff;
@@ -717,5 +725,79 @@ img {
     .cta-section .cta-content {
         margin-left: 0;
         padding-right: 0;
+    }
+}
+
+
+
+.aboutus {
+    width: 100%;
+    background-color: white;
+
+    .about-section11 {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+
+        .about-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            color: black;
+            margin-bottom: 40px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+
+            .about-text {
+                flex: 1 1 50%;
+                font-size: 16px;
+                line-height: 1.6;
+                color: #000;
+
+                p {
+                    margin-bottom: 20px;
+                }
+
+                strong {
+                    font-weight: 700;
+                }
+            }
+
+            .about-image {
+                flex: 1 1 50%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 4px;
+                    display: block;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+
+                .about-text,
+                .about-image {
+                    flex: 1 1 100%;
+                }
+
+                .about-image {
+                    margin-top: 20px;
+                }
+            }
+
+            .about-title {
+                font-size: 36px;
+            }
+        }
     }
 }
