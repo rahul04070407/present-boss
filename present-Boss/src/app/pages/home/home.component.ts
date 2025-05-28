@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Subscription, filter } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,32 +9,62 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  sections = [
-    {
-      title: 'Face Recognition + GPS Attendance',
-      description: 'No more guesswork. No more fake entries. Present Boss uses AI-driven face ID...',
-      image: 'images/Mask group.png',
-      badgeImage: 'images/Group 973.png'
-    },
-    {
-      title: 'Commute Made Clear',
-      description: 'Forget TA bill drama. Present Boss handles routes, time, distance...',
-      image: 'images/Mask group (1).png',
-      badgeImage: 'images/Group 972.png'
-    },
-    {
-      title: 'Real-Time Dashboards & Insights',
-      description: 'See your workforce live in action. Generate smart reports...',
-      image: 'images/Mask group (2).png',
-      badgeImage: 'images/Group 974.png'
-    },
-    {
-      title: 'Safe. Secure. Scalable.',
-      description: 'From startups to enterprises, Present Boss grows with you...',
-      image: 'images/Mask group (3).png',
-      badgeImage: ''
-    }
-  ];
+export class HomeComponent implements AfterViewInit, OnDestroy {
+  price="₹60,000+AMC@18% (Rs10,800/year)"
 
+  @ViewChild('aboutSection') aboutSection!: ElementRef;
+  @ViewChild('pricingSection') pricingSection!: ElementRef;
+
+  private routerSub!: Subscription;
+  private observer!: IntersectionObserver;
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  ngAfterViewInit() {
+    this.routerSub = this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        setTimeout(() => {
+          const fragment = this.route.snapshot.fragment;
+          if (fragment === 'about' && this.aboutSection) {
+            this.aboutSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+          } else if (fragment === 'price' && this.pricingSection) {
+            this.pricingSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const fragment = this.route.snapshot.fragment;
+        if (!entry.isIntersecting) {
+          if (
+            (fragment === 'about' && entry.target === this.aboutSection?.nativeElement) ||
+            (fragment === 'price' && entry.target === this.pricingSection?.nativeElement)
+          ) {
+            this.router.navigate([], {
+              relativeTo: this.route,
+              fragment: undefined,
+              replaceUrl: true
+            });
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (this.aboutSection) {
+      this.observer.observe(this.aboutSection.nativeElement);
+    }
+
+    if (this.pricingSection) {
+      this.observer.observe(this.pricingSection.nativeElement);
+    }
+  }
+
+  ngOnDestroy() {
+    this.routerSub?.unsubscribe();
+    this.observer?.disconnect();
+  }
 }
+
+

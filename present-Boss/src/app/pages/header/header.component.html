@@ -6,8 +6,8 @@
 
     <nav class="nav desktop-nav">
       <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-      <a class="nav-link" routerLink="/about" routerLinkActive="active">About us</a>
-        <a class="nav-link" routerLink="/services" routerLinkActive="active">PRICING PLANS</a>
+      <a class="nav-link" [routerLink]="['/home']" fragment="about" [class.active]="isAboutActive">About us</a>
+        <a class="nav-link" routerLink="/home" fragment="price" [class.active]="isPriceActive">PRICING PLANS</a>
 
     </nav>
 
@@ -29,8 +29,8 @@
     </div>
     <div class="offcanvas-body">
       <a class="nav-link" routerLink="/home">HOME</a>
-      <a class="nav-link" routerLink="/about">ABOUT US</a>
-        <a class="nav-link" routerLink="/services" routerLinkActive="active">PRICING PLANS</a>
+      <a class="nav-link"[routerLink]="['/home']" fragment="about" [class.active]="isAboutActive">ABOUT US</a>
+        <a class="nav-link" routerLink="/home" fragment="price" [class.active]="isPriceActive">PRICING PLANS</a>
 
       <!-- Mobile Only Actions -->
       <div class="mobile-actions">
