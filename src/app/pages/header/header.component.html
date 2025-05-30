@@ -7,12 +7,12 @@
     <nav class="nav desktop-nav">
       <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
       <a class="nav-link" [routerLink]="['/home']" fragment="about" [class.active]="isAboutActive">About us</a>
-        <a class="nav-link" routerLink="/home" fragment="price" [class.active]="isPriceActive">PRICING PLANS</a>
+      <a class="nav-link" routerLink="/home" fragment="price" [class.active]="isPriceActive">PRICING PLANS</a>
 
     </nav>
 
     <div class="right-actions">
-      <button class="get-in-touch-btn">GET IN TOUCH</button>
+      <button class="get-in-touch-btn" (click)="goToContact()">GET IN TOUCH</button>
     </div>
 
     <!-- Mobile Menu Icon -->
@@ -29,12 +29,12 @@
     </div>
     <div class="offcanvas-body">
       <a class="nav-link" routerLink="/home">HOME</a>
-      <a class="nav-link"[routerLink]="['/home']" fragment="about" [class.active]="isAboutActive">ABOUT US</a>
-        <a class="nav-link" routerLink="/home" fragment="price" [class.active]="isPriceActive">PRICING PLANS</a>
+      <a class="nav-link" [routerLink]="['/home']" fragment="about" [class.active]="isAboutActive">ABOUT US</a>
+      <a class="nav-link" routerLink="/home" fragment="price" [class.active]="isPriceActive">PRICING PLANS</a>
 
       <!-- Mobile Only Actions -->
       <div class="mobile-actions">
-        <button class="get-in-touch-btn">GET IN TOUCH</button>
+        <button class="get-in-touch-btn" (click)="goToContact()">GET IN TOUCH</button>
       </div>
     </div>
   </div>

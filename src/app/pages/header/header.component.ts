@@ -9,7 +9,7 @@ import { filter } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent  implements AfterViewInit {
+export class HeaderComponent implements AfterViewInit {
   @ViewChild('menuToggle') menuToggle!: ElementRef;
   @ViewChild('offcanvasMenu') offcanvasMenu!: ElementRef;
   @ViewChild('closeBtn') closeBtn!: ElementRef;
@@ -18,7 +18,7 @@ export class HeaderComponent  implements AfterViewInit {
   isAboutActive = false;
   isPriceActive = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.router.events
@@ -52,5 +52,9 @@ export class HeaderComponent  implements AfterViewInit {
         offcanvas.classList.remove('open');
       }
     });
+  }
+
+  goToContact() {
+    this.router.navigate(['/contact']);
   }
 }
